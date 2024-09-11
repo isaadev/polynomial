@@ -19,6 +19,12 @@ class Add:
     
     def __repr__(self):
         return repr(self.p1) + " + " + repr(self.p2)
+	
+	def evaluate(self, i):
+		p1 = self.p1.evaluate(i)
+		p2 = self.p2.evaluate(i)
+		return Int(p1.i + p2.i)		
+
 
 class Mul:
     def __init__(self, p1, p2):
@@ -27,7 +33,7 @@ class Mul:
     
     def __repr__(self):
         if isinstance(self.p1, Add):
-            if isinstance(self.p2, Add):
+            if isinstance(selfp2, Add):
                  return "( " + repr(self.p1) + " ) * ( " + repr(self.p2) + " )"
             return "( " + repr(self.p1) + " ) * " + repr(self.p2)
         if isinstance(self.p2, Add):
